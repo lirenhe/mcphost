@@ -1,2 +1,2 @@
 # mcphost
-define the typespec and codegen for MPC protocol
+define the typespec and codegen for MCP protocol
