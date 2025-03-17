@@ -19,7 +19,7 @@
   },
   "peerDependencies": {
     "@typespec/compiler": "latest",
-    "@typespec/http": "~0.43.1"
+    "@typespec/http": "latest"
   },
   "devDependencies": {
     "@types/node": "latest",

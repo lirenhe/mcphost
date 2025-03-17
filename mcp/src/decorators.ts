@@ -31,3 +31,33 @@ export function $alternateName(context: DecoratorContext, target: Operation, nam
 export function getAlternateName(program: Program, target: Operation): string | undefined {
   return program.stateMap(StateKeys.alternateName).get(target);
 }
+
+
+/**
+ * __Example implementation of the `@alternateName` decorator.__
+ *
+ * @param context Decorator context.
+ * @param target Decorator target. Must be an operation.
+ * @param name Alternate name.
+ */
+export function $mcpServer(context: DecoratorContext, target: unknown, name: string, description?: string) {
+  if (name === "banned") {
+    reportDiagnostic(context.program, {
+      code: "banned-alternate-name",
+      target: context.getArgumentTarget(0)!,
+      format: { name },
+    });
+  }
+  context.program.stateMap(StateKeys.alternateName).set(target as any, name);
+}
+
+/**
+ * __Example accessor for  the `@alternateName` decorator.__
+ *
+ * @param program TypeSpec program.
+ * @param target Decorator target. Must be an operation.
+ * @returns Altenate name if provided on the given operation or undefined
+ */
+export function mcpServer(program: Program, target: unknown): string | undefined {
+  return program.stateMap(StateKeys.alternateName).get(target as any);
+}
