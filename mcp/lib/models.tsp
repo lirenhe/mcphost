@@ -1,7 +1,7 @@
 import "./decorators.tsp";
 import "../dist/src/index.js";
 
-namespace mcp;
+namespace Mcp;
 
 enum JsonRpcErrorCode {
     ParseError : -32700,

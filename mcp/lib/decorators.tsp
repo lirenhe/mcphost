@@ -11,20 +11,34 @@ namespace Mcp;
  */
 extern dec alternateName(target: Operation, name: valueof string);
 
+/**
+ * Service options.
+ */
+model McpServiceOptions {
+    /**
+     * Title of the service.
+     */
+    title?: string;
+  
+    /**
+     * Version of the service.
+     */
+    version?: string;
+
+    /**
+     * Description of the service.
+     */
+    description?: string;
+  }
+
 
 /**
 
  * Provide a description for the mcpServer.
  * @param description The description.
  */
-extern dec mcpServer(target: unknown, name: valueof string, description?: valueof string);
+extern dec mcpServer(target: Namespace, mcpServerOptions: valueof McpServiceOptions);
 
-
-/**
- * all the operations under this namespace will use the same service
- * @param description The description.
- */
-extern dec useService(target: Namespace, serviceName: valueof string, description?: valueof string);
 
 /**
  * Provide a description for an operation.

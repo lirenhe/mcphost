@@ -1,5 +1,5 @@
 {
-  "name": "@typespec/json-schema",
+  "name": "@typespec/mcp",
   "version": "0.1.0",
   "author": "Microsoft Corporation",
   "license": "MIT",

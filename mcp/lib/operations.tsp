@@ -1,6 +1,6 @@
 import "./models.tsp";
 
-namespace mcp;
+namespace Mcp;
 
 /**
 json rpc operation
