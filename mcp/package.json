@@ -17,22 +17,28 @@
       "default": "./dist/src/testing/index.js"
     }
   },
-  "peerDependencies": {
-    "@typespec/compiler": "latest",
-    "@typespec/http": "latest"
-  },
   "devDependencies": {
+    "@alloy-js/babel-preset": "^0.2.0",
+    "@babel/cli": "^7.26.4",
+    "@babel/core": "^7.26.10",
+    "@rollup/plugin-babel": "^6.0.4",
     "@types/node": "latest",
     "@typescript-eslint/eslint-plugin": "^8.15.0",
     "@typescript-eslint/parser": "^8.15.0",
     "@typespec/compiler": "latest",
+    "@typespec/http": "latest",
     "@typespec/library-linter": "latest",
+    "@typespec/ts-http-runtime": "latest",
+    "concurrently": "^9.1.2",
     "eslint": "^9.15.0",
     "prettier": "^3.3.3",
     "typescript": "^5.3.3"
   },
   "dependencies": {
-    "yaml": "~2.7.0"
+    "@alloy-js/core": "^0.6.0",
+    "@alloy-js/typescript": "^0.6.0",
+    "@typespec/emitter-framework": "0.3.0",
+    "@typespec/http-client": "latest"
   },
   "files": [
     "lib/*.tsp",
@@ -40,10 +46,15 @@
     "!dist/test/**"
   ],
   "scripts": {
-    "build": "tsc && npm run build:tsp",
-    "watch": "tsc --watch",
+    "build-src": "babel src -d dist/src --extensions .ts,.tsx",
+    "build-tsc": "tsc -p .",
+    "build": "tsc -p . && npm run build-src",
+    "watch-src": "babel src -d dist/src --extensions .ts,.tsx --watch",
+    "watch-tsc": "tsc -p . --watch",
+    "watch": "concurrently --kill-others \"npm run watch-tsc\" \"npm run watch-src\"",
     "build:tsp": "tsp compile . --warn-as-error --import @typespec/library-linter --no-emit",
     "test": "node --test",
+    "test:watch": "node --test --watch",
     "lint": "eslint src/ test/ --report-unused-disable-directives --max-warnings=0",
     "lint:fix": "eslint . --report-unused-disable-directives --fix",
     "format": "prettier .  --write",

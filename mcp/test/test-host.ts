@@ -11,7 +11,11 @@ export async function createMcpTestRunner() {
   const host = await createMcpTestHost();
 
   return createTestWrapper(host, {
-    autoUsings: ["Mcp"]
+    autoUsings: ["Mcp"],
+    compilerOptions: {
+      emit: ["mcp"],
+      options: {},
+      noEmit: false,
+    },
   });
 }
-
