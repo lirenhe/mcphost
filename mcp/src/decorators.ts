@@ -68,3 +68,8 @@ export function $mcpServer(context: DecoratorContext, target: Namespace, options
 export function mcpServer(program: Program, target: Namespace): string | undefined {
   return program.stateMap(StateKeys.alternateName).get(target as any);
 }
+
+// TODO
+export function $linkOperation(context: DecoratorContext, target: Operation, operationName: string, description: string) {
+
+}
