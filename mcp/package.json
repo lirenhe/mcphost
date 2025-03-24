@@ -17,6 +17,10 @@
       "default": "./dist/src/testing/index.js"
     }
   },
+  "peerDependencies": {
+    "@typespec/compiler": "latest",
+    "@typespec/http": "latest"
+  },
   "devDependencies": {
     "@alloy-js/babel-preset": "^0.2.0",
     "@babel/cli": "^7.26.4",
