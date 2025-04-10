@@ -1,0 +1,11 @@
+{
+    "servers": {
+        "my-weather-mcp": {
+            "type": "stdio",
+            "command": "node",
+            "args": [
+                "D:\\w\\t\\mcphost\\weatherhost\\tsp-output\\@typespec\\mcp\\dist\\weatherservice.mcp.js"
+            ]
+        }
+    }
+}

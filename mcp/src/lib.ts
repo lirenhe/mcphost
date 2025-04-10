@@ -1,4 +1,8 @@
-import { createTypeSpecLibrary, JSONSchemaType, paramMessage } from "@typespec/compiler";
+import {
+  createTypeSpecLibrary,
+  JSONSchemaType,
+  paramMessage,
+} from "@typespec/compiler";
 
 export interface McpEmitterOptions {
   "package-name"?: string;
@@ -24,18 +28,16 @@ export const $lib = createTypeSpecLibrary({
     options: EmitterOptionsSchema,
   },
   // Define diagnostics for the library. This will provide a typed API to report diagnostic as well as a auto doc generation.
-  diagnostics: {
-    "banned-alternate-name": {
-      severity: "error",
-      messages: {
-        default: paramMessage`Banned alternate name "${"name"}".`,
-      },
-    },
-  },
+  diagnostics: {},
   // Defined state keys for storing metadata in decorator.
   state: {
-    alternateName: { description: "alternateName" },
+    tools: { description: "tools" },
+    resources: { description: "resources" },
   },
 });
 
-export const { reportDiagnostic, createDiagnostic, stateKeys: StateKeys } = $lib;
+export const {
+  reportDiagnostic,
+  createDiagnostic,
+  stateKeys: StateKeys,
+} = $lib;

@@ -3,21 +3,17 @@
   "version": "0.1.0",
   "type": "module",
   "peerDependencies": {
-    "@typespec/compiler": "latest",
-    "@typespec/http": "latest",
-    "@typespec/rest": "latest",
-    "@typespec/openapi": "latest",
-    "@typespec/openapi3": "latest"
+    "@typespec/compiler": "file:../mcp/node_modules/@typespec/compiler",
+    "@typespec/http": "file:../mcp/node_modules/@typespec/http",
+    "@typespec/rest": "file:../mcp/node_modules/@typespec/rest"
   },
   "devDependencies": {
-    "@typespec/compiler": "latest",
-    "@typespec/http": "latest",
-    "@typespec/rest": "latest",
-    "@typespec/openapi": "latest",
-    "@typespec/openapi3": "latest"
+    "@typespec/compiler": "file:../mcp/node_modules/@typespec/compiler",
+    "@typespec/http": "file:../mcp/node_modules/@typespec/http",
+    "@typespec/rest": "file:../mcp/node_modules/@typespec/rest"
   },
   "dependencies": {
-    "@typespec/mcp": "file:../mcp/"
+    "@typespec/mcp": "file:../mcp"
   },
   "private": true
 }

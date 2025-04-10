@@ -1,8 +1,6 @@
 emit:
-  - "@typespec/openapi3"
+  - "@typespec/mcp"
 options:
-  "@typespec/openapi3":
-    emitter-output-dir: "{output-dir}/schema"
-    openapi-versions:
-      - 3.1.0
-
+  "@typespec/mcp":
+    package-name: "weather-mcp"
+  
